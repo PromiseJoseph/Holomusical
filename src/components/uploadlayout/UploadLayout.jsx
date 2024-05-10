@@ -21,7 +21,6 @@ const UploadLayout = () => {
                                    status === true ?
                                         data.map((item) => {
                                         return (
-
                                             <Uploads
                                                 id={item.id} 
                                                 name={item.name}
@@ -33,7 +32,7 @@ const UploadLayout = () => {
                                     })
                                     :
                                     <>
-                                   <h1 style={{color:"white"}}>No Available Item</h1> 
+                                   <h1 style={{color:"white"}}>No Available Item  </h1> 
                                    </>
                                 }
                             </div>
