@@ -1,19 +1,10 @@
 import React from "react";
-import { useContext } from "react";
-import setContext from "../context/SetContext";
-// import setContext from "./context/UploadProvider";
 import "../../assets/css/style.css"
 import { NavLink } from "react-router-dom";
 
 
 const UploadsStatic = () => {
-  //  const [favourite,setFavourite]= useContext(setContext)
-  //  const Uploads= useContext(setContext);
-  // const addfav= ()=>{
-  //   setFavourite(favourite +1)
-  //   console.log(favourite)
-  // }
-
+  
   const trending = [
     "img/trending/no1.jpg",
     "img/trending/no2.jpg",

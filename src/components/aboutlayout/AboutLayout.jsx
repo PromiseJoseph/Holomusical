@@ -15,7 +15,7 @@ const AboutLayout = () => {
     return (
         <>
             <main id="main">
-                <UploadHeroes section="About" />
+                <UploadHeroes section="About" hero="abouthero"/>
                 <About/>
                 <Service/>
                 <Team/>

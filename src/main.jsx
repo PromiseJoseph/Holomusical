@@ -1,10 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './assets/css/main.css'
-// import App from './App.jsx'
-// import uploadProvider from './components/context/UploadProvider.jsx'
+import "./assets/css/main.css"
 import Layout from './Layout.jsx'
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import {  RouterProvider, createBrowserRouter, } from 'react-router-dom'
 
 // layoutsand components
 import HomeLayout from './components/homelayout/HomeLayout.jsx'
@@ -15,17 +13,33 @@ import ContactLayout from './components/contactlayout/ContactLayout.jsx'
 
 
 // import './index.css'
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element={<Layout/>}>
-      <Route path='' element={<HomeLayout/>}/>
-      <Route path='/uploads' element={<UploadLayout/>} />
-      <Route path='/about' element={<AboutLayout/>} />
-      <Route path='/contact' element={<ContactLayout/>}/>
-    
-    </Route>
-  )
-)
+const router = createBrowserRouter([
+  {
+  
+    path: "/",
+    element: <Layout/>,
+    children: [
+      {
+        path: "",
+        element: <HomeLayout/>,
+      },
+      {
+        path: "/uploads",
+        element: <UploadLayout/>,
+      }, 
+      {
+        path: "/about",
+        element: <AboutLayout/>,
+      }, 
+      {
+        path: "/contact",
+        element: <ContactLayout/>,
+      }, 
+      
+    ]
+  },
+]);
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

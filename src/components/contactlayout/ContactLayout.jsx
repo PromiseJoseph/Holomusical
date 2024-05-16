@@ -12,7 +12,7 @@ const ContactLayout = () => {
     return (
         <>
             <main id="main">
-                <UploadHeroes section="Contact" />
+                <UploadHeroes section="Contact" hero="contacthero"/>
                 <Contact/>
             </main>
         </>

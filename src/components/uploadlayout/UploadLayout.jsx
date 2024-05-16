@@ -1,47 +1,57 @@
-import React, { useContext, useEffect } from "react"
-import UploadsLoader from "../api/UploadsLoader"
+import React, { useContext, useEffect, useState } from "react"
 import UploadHeroes from "../Heroes/UploadHeroes"
 import Uploads from "./Uploads"
-import axios from "axios"
-import axiosClient from "../../axios"
-
+import { Data } from "../Data/Data"
 import { UploadContext } from "../context/UploadProvider"
+
+
 const UploadLayout = () => {
-    const { data,status} = useContext(UploadContext)
+    const { aos_init } = useContext(UploadContext)
+    useEffect(() => {
+        aos_init()},[])
     return (
         <>
             <main id="main">
-                <UploadHeroes section= "Uploads"/>
-                <div className="" id="portfolio">
-
-                    <section className="portfolio sections-bg">
-                        <div className="container" data-aos="fade-up">
-                            <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-                                {
-                                   status === true ?
-                                        data.map((item) => {
-                                        return (
-                                            <Uploads
-                                                id={item.id} 
-                                                name={item.name}
-                                                description={item.description}
-                                                artist={item.artist}
-                                                img_path={item.img_path}
-                                            />
-                                        )
-                                    })
-                                    :
-                                    <>
-                                   <h1 style={{color:"white"}}>No Available Item  </h1> 
-                                   </>
-                                }
-                            </div>
-                        </div>
-                    </section>
-                </div>
+                <UploadHeroes section="Uploads" hero="uploadhero" />
+                <UploadFormat />
             </main>
 
         </>
     )
 }
 export default UploadLayout
+
+
+export const UploadFormat = () => {
+    const data = Data()
+    console.log(data)
+    return (
+        <div className="" >
+            <section className="portfolio sections-bg">
+                <div className="container" data-aos="fade-up">
+                    <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+                        {
+                            data ?
+                            data.map((item) => {
+                                return (
+                                    <Uploads
+                                        id={item.id}
+                                        name={item.name}
+                                        description={item.description}
+                                        artist={item.artist}
+                                        img_path={item.img_path}
+                                        artist_image={item.artist_image}
+                                        stream_path={item.stream_path}
+                                        download_path={item.download_path}
+                                    />
+                                )
+                            })
+                            : null
+                        }
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    )
+}

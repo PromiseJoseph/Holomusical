@@ -4,23 +4,21 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useEffect } from "react";
-import UploadsLoader from "./components/api/UploadsLoader";
 import { UploadContext } from "./components/context/UploadProvider";
 
 const Layout = () => {
-    const { data, setData,setStatus,status,aos_init } = useContext(UploadContext)
-
-    const url = "uploads"
+    
+    const { aos_init } = useContext(UploadContext)
+   
     useEffect(() => {
-        aos_init();
-    }, [url])
-    console.log(data,status)
+        aos_init()
+    }, [])
    
     return (
         <>
         
             <Header />
-            <Outlet />
+            <Outlet/>
             <Footer/>
         
         </>

@@ -1,12 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useLoaderData } from "react-router-dom";
-import axios from "axios";
+
 // import setContext from "./context/UploadProvider";
 export const appName = "HOLOMUSICAL"
- 
+
 const Header = () => {
-  
+  useEffect(() => {
+    const selectHeader = document.querySelector('#header');
+    if (selectHeader) {
+      document.addEventListener('scroll', () => {
+        window.scrollY > 100 ? selectHeader.classList.add('sticked') : selectHeader.classList.remove('sticked');
+      });
+    }
+  })
+
+
+  /**
+     * Mobile nav toggle
+     */
+
+  const mobileNavToogle = event => {
+    event.preventDefault();
+    const mobileNavShow = document.querySelector('.mobile-nav-show');
+    const mobileNavHide = document.querySelector('.mobile-nav-hide');
+    document.querySelector('body').classList.toggle('mobile-nav-active');
+    mobileNavShow.classList.toggle('d-none');
+    mobileNavHide.classList.toggle('d-none');
+  }
+
+
+
+
+
 
   return (
     <>
@@ -23,30 +48,26 @@ const Header = () => {
               <h1 className="d-flex align-items-center">{appName}</h1>
             </a>
 
-            <i className="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-            <i className="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+            <i className="mobile-nav-toggle mobile-nav-show bi bi-list" onClick={e => mobileNavToogle(e)}></i>
+            <i className="mobile-nav-toggle mobile-nav-hide d-none bi bi-x" onClick={e => mobileNavToogle(e)}></i>
 
             <nav id="navbar" className="navbar">
               <ul>
-                <li><NavLink to={"/"} className={({Active})=>{
-                  {Active ? "text-#56b8e6" : "text-secondary"}
-                }} >Home</NavLink></li>
+                <li><NavLink to={"/"}
+                >Home</NavLink></li>
+
                 <li><a href="#">Favourite</a></li>
 
-                <li className="dropdown"><NavLink to={"/uploads"}><span>Uploads</span> <i className="bi bi-chevron-down dropdown-indicator"></i> </NavLink>
-                  <ul>
-                    <li><a href="#">Foreign</a></li>
-                    <li><a href="#">Naija</a></li>
-                  </ul>
-                 
-                </li>
-                <li><NavLink to={"/about"} className={({isActive})=>{
-                  {isActive ? "text-#56b8e6" : "text-secondary"}
-                }} >About</NavLink></li>
+                <li><NavLink to="/uploads"
+                ><span>Uploads</span> </NavLink> </li>
+
+                <li><NavLink to={"/about"}
+                >About</NavLink></li>
+
                 <li><a href="#">Portfolio</a></li>
-                <li> <NavLink to={"/contact"} className={({isActive})=>{
-                  {isActive ? "text-#56b8e6" : "text-secondary"}
-                }}>Contact</NavLink></li>
+
+                <li> <NavLink to={"/contact"}
+                >Contact</NavLink></li>
               </ul>
             </nav>{/*<!-- .navbar -->*/}
 

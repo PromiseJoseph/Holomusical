@@ -8,7 +8,6 @@ export const UploadContext = createContext();
 
 const UploadProvider = ({ children }) => {
 const [data,setData] =useState([]);
-const [favourite,setFavourite]= useState([]);
 const [status,setStatus]= useState(false)
 const aos_init = ()=>{
     AOS.init({
@@ -33,17 +32,5 @@ let fetchedData=[]
         provider   
     )
 }
-// const [favourite,setFavourite]= useState(0);
-// const Uploads= "uploads"
-//   // const addFavourite =(e)=>{
-//   //     setfavourite(favourite + 1)
-//   //     console.log (favourite)
-//   // } 
-
-// const Provider = <setContext.Provider value={[favourite,setFavourite]}> 
-//   {children} 
-//   </setContext.Provider>
-
-//  return (Provider)
 
 export default UploadProvider

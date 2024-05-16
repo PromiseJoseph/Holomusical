@@ -14,7 +14,7 @@ const About = () => {
 
                     <div className="row g-0" data-aos="fade-up" data-aos-delay="200">
 
-                        <div className="col-xl-5 img-bg" style={{ backgroundImage: "url('img/why-us-bg.jpg')" }}></div>
+                        <div className="col-xl-5 img-bg excite" ></div>
                         <div className="col-xl-7 slides p-5  position-relative">
                             <div className="item">
                                 <h3 className="mb-3">Let's give you the excitement</h3>

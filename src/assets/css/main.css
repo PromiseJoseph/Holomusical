@@ -756,7 +756,40 @@ section {
   padding: 120px 0 ;
   z-index: 3;
 }
+.excite{
+  background: url("../img/header-heroes/excitement.jpg") top center;
+  background-size:contain;
+  position: relative;
+  padding: 120px 0 ;
+  z-index: 3;
+  border-radius: 20px;
 
+}
+.abouthero{
+  background: url("../img/header-heroes/about.jpg") top center;
+  position: relative;
+  padding: 120px 0 ;
+  z-index: 3;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.uploadhero{
+  background: url("../img/header-heroes/uploads.jpg") top center;
+  position: relative;
+  padding: 120px 0 ;
+  z-index: 3;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.contacthero{
+  background: url("../img/header-heroes/contact.jpg") top center;
+  position: relative;
+  padding: 120px 0 ;
+  z-index: 3;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 @media (min-width: 1034px) {
   .hero:after {
     position: absolute;
