@@ -61,7 +61,7 @@ const Email = "mailto:holopals977@gmail.com"
                         {/* form */}
                         <div className="col-lg-6" data-aos="flip-right" data-aos-delay="250">
 
-                            <form action={Email} method="post" role="form" className="php-email-form" >
+                            <form  method="post" role="form" className="php-email-form" >
                                 <div className="row">
                                     <div className="col-md-6 form-group">
                                         <input type="text" name="name" className="form-control" id="name" value={review.name} placeholder="Your Name" onChange={e => setReview({ ...review, name: e.target.value })} required />
