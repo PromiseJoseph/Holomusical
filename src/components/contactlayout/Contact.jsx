@@ -10,7 +10,7 @@ const Contact = () => {
         message: "",
 
     });
-const EMail = "mailto:holopals977@gmail.com"
+const Email = "mailto:holopals977@gmail.com"
 
     // useEffect(()=>{
     //     setReview(reviewData);
