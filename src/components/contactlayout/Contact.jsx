@@ -10,7 +10,7 @@ const Contact = () => {
         message: "",
 
     });
-
+const EMail = "mailto:holopals977@gmail.com"
 
     // useEffect(()=>{
     //     setReview(reviewData);
@@ -26,14 +26,14 @@ const Contact = () => {
                             <div class="info-box card">
                                 <i class="bi bi-telephone"></i>
                                 <h3>Call Us</h3>
-                                <p>+1 5589 55488 55<br />+1 6678 254445 41</p>
+                                <p>+234 8087 2539 10<br />+234 8078 7097 19</p>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="info-box card">
                                 <i class="bi bi-envelope"></i>
                                 <h3>Email Us</h3>
-                                <p>info@example.com<br />contact@example.com</p>
+                                <p>..................<br />holopals977@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ const Contact = () => {
                         {/* form */}
                         <div className="col-lg-6" data-aos="flip-right" data-aos-delay="250">
 
-                            <form action="forms/contact.php" method="post" role="form" className="php-email-form">
+                            <form action={Email} method="post" role="form" className="php-email-form" >
                                 <div className="row">
                                     <div className="col-md-6 form-group">
                                         <input type="text" name="name" className="form-control" id="name" value={review.name} placeholder="Your Name" onChange={e => setReview({ ...review, name: e.target.value })} required />
