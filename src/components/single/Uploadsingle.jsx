@@ -9,7 +9,7 @@ const Uploadsingle = ()=>{
                     <img src="../../public/img/portfolio/app-1.jpg" className="img-fluid" alt=""/>
                 </a>
                 <div className="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>
+                  <h4><a href="portfolio-details.html" title="More Details">App</a></h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
                 </div>
               </div>

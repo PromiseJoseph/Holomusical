@@ -13,8 +13,7 @@ const Header = () => {
       });
     }
   })
-
-
+  
   /**
      * Mobile nav toggle
      */
@@ -28,9 +27,7 @@ const Header = () => {
     mobileNavHide.classList.toggle('d-none');
   }
 
-
-
-
+  
 
 
   return (
@@ -47,16 +44,17 @@ const Header = () => {
               {/* <input/> */}
               <h1 className="d-flex align-items-center">{appName}</h1>
             </a>
-
+            
             <i className="mobile-nav-toggle mobile-nav-show bi bi-list" onClick={e => mobileNavToogle(e)}></i>
             <i className="mobile-nav-toggle mobile-nav-hide d-none bi bi-x" onClick={e => mobileNavToogle(e)}></i>
 
             <nav id="navbar" className="navbar">
               <ul>
+
                 <li><NavLink to={"/"}
                 >Home</NavLink></li>
 
-                <li><a href="#">Favourite</a></li>
+                <li><a href="#">Blog</a></li>
 
                 <li><NavLink to="/uploads"
                 ><span>Uploads</span> </NavLink> </li>
@@ -68,13 +66,13 @@ const Header = () => {
 
                 <li> <NavLink to={"/contact"}
                 >Contact</NavLink></li>
+                
               </ul>
             </nav>{/*<!-- .navbar -->*/}
 
           </div>
         </header>{/*<!-- End Header -->*/}
       </div>
-
     </>
   )
 }

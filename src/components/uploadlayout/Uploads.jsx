@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 
 const Uploads = (props) => {
@@ -19,7 +20,7 @@ const Uploads = (props) => {
     <>
       
 
-      <div className="col " style={{ marginBottom: `${-1}px` }} >
+      <div className="col" style={{ marginBottom: `${-1}px` }} id={props.id}>
         <div className="card" id="upload_single">
           <img className="card-img-top w-100 d-block fit-cover" style={height} src={props.img_path} />
           <div className="card-body p-4">
@@ -35,13 +36,13 @@ const Uploads = (props) => {
             </div>
 
           </div>
-          <div className="d-flex mb-2 text-center mx-2">
-            <button href={props.download_path} className="btn btn-light text-dark mb-2"><i className="bi bi-download fs-3 mx-2"></i>Download</button>
+          <div className="d-flex mb-1 text-center mx-2">
+            <NavLink  to={props.download_path} className="btn btn-light text-dark mb-2"><i className="bi bi-download fs-3 mx-2"></i>Download</NavLink>
             
           </div>
          
-          <audio controls src={props.stream_path} height="25" width="250" style={{border:0}}  allowtransparency="true" />
-          
+          <audio controlsList="nodownload" controls src={props.stream_path} height="25" width="250" style={{border:0}}  allowtransparency="true" />
+          <iframe></iframe>
         </div>
       </div>
 

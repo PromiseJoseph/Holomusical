@@ -24,12 +24,12 @@ const UploadsStatic = () => {
   }
   return (
     <>
-      <div className="" id="portfolio">
+      <div className="" id="">
        
         <section className="portfolio sections-bg">
         <div className="text-center text-white p-3  font-4">
           <div className="section-header">
-          <h2 className="fs-1 col-secondary" style={{fontFamily:"monospace"}}><strong>Top Trending Three </strong></h2>
+          <h2 className="fs-1 text-dark" style={{fontFamily:"monospace"}}><strong>Top Trending Three </strong></h2>
           </div>
         </div>
           <div className="container" data-aos="fade-up">

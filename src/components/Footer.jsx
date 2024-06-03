@@ -13,15 +13,15 @@ const Footer = () => {
                             &copy; Copyright <strong><span>{appName}</span></strong>. All Rights Reserved
                             
                         </div>
-                        <div className="social-links d-flex  mt-3"  style={{marginLeft:"42%"}}>
+                       
+                    </div>
+         <div className="social-links  d-flex mt-3 text-center"  >
                                 <a href="#" className="twitter  mx-2"><i className="bi bi-twitter"></i></a>
                                 <a href="#" className="facebook mx-2 "><i className="bi bi-facebook"></i></a>
                                 <a href="#" className="instagram mx-2 "><i className="bi bi-instagram"></i></a>
                                 <a href="#" className="linkedin mx-2"><i className="bi bi-linkedin"></i></a>
                                 <a href="#" className="linkedin mx-2"><i className="bi bi-github"></i></a>
                         </div>
-
-                    </div>
 
                 </div>
 

@@ -5,22 +5,25 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useEffect } from "react";
 import { UploadContext } from "./components/context/UploadProvider";
+import { useState } from "react";
 
 const Layout = () => {
-    
+
     const { aos_init } = useContext(UploadContext)
-   
+
+    
     useEffect(() => {
         aos_init()
-    }, [])
-   
+    }, []);
+
     return (
-        <>
-        
-            <Header />
-            <Outlet/>
-            <Footer/>
-        
+        <> 
+                <Header /> 
+                
+                <Outlet />
+               
+                <Footer />
+           
         </>
 
     )

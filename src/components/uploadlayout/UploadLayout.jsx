@@ -25,11 +25,35 @@ export default UploadLayout
 export const UploadFormat = () => {
     const data = Data()
     console.log(data)
+
+    const pagination = () =>{
+    const datatables = document.querySelectorAll('.datatable')
+  datatables.forEach(datatable => {
+    new simpleDatatables.DataTable(datatable, {
+      perPageSelect: [5, 10, 15, ["All", -1]],
+      columns: [{
+          select: 2,
+          sortSequence: ["desc", "asc"]
+        },
+        {
+          select: 3,
+          sortSequence: ["desc"]
+        },
+        {
+          select: 4,
+          cellClass: "green",
+          headerClass: "red"
+        }
+      ]
+    });
+  })
+}
     return (
         <div className="" >
             <section className="portfolio sections-bg">
                 <div className="container" data-aos="fade-up">
                     <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+                        <div className="datatable">
                         {
                             data ?
                             data.map((item) => {
@@ -48,6 +72,7 @@ export const UploadFormat = () => {
                             })
                             : null
                         }
+                        </div>
                     </div>
                 </div>
             </section>

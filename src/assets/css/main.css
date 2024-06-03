@@ -20,7 +20,7 @@
 /* Colors */
 :root {
   --color-default: #2b180d;
-  --color-primary: #56b8e6;
+  --color-primary: rgb(69, 76, 97);
   --color-secondary: #1a2c37 /*#1b2f45;*/
 }
 
@@ -78,6 +78,10 @@ section {
   position: relative;
 }
 
+.dark-background {
+  background-color: #333;
+  color: #fff;
+}
 .section-header h2:after {
   content: "";
   position: absolute;
@@ -261,7 +265,9 @@ section {
   font-family: var(--font-secondary);
   margin: 0;
 }
-
+.social-links{
+  margin-left: 42%;
+}
 /*--------------------------------------------------------------
 # Desktop Navigation
 --------------------------------------------------------------*/
@@ -383,11 +389,19 @@ section {
     display: none;
   }
 }
+@media (max-width: 726px) {
+  .social-links{
+  margin-left: 25%;
+}
+}
 
 /*--------------------------------------------------------------
 # Mobile Navigation
 --------------------------------------------------------------*/
 @media (max-width: 1279px) {
+  /* .social-links{
+    margin-left: 25%;
+  } */
   .navbar {
     position: fixed;
     top: 0;
@@ -750,45 +764,49 @@ section {
 .hero {
   width: 100%;
   min-height: 100vh;
-  background: url("../img/header-heroes/headset1.jpg") top center;
-  background-size:contain;
+  background: url("../img/header-heroes/headset2.jpg") top center;
+  background-size: cover;
   position: relative;
-  padding: 120px 0 ;
+  padding: 120px 0;
   z-index: 3;
 }
 .excite{
-  background: url("../img/header-heroes/excitement.jpg") top center;
-  background-size:contain;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
   position: relative;
-  padding: 120px 0 ;
+  padding: 120px 0;
   z-index: 3;
-  border-radius: 20px;
-
+  background: url("../img/header-heroes/excitement.jpg");
 }
 .abouthero{
-  background: url("../img/header-heroes/about.jpg") top center;
-  position: relative;
-  padding: 120px 0 ;
-  z-index: 3;
-  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
   background-size: cover;
+  position: relative;
+  padding: 120px 0;
+  z-index: 3;
+  background: url("../img/header-heroes/about.jpg");
 }
 
 .uploadhero{
-  background: url("../img/header-heroes/uploads.jpg") top center;
-  position: relative;
-  padding: 120px 0 ;
-  z-index: 3;
-  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
   background-size: cover;
+  position: relative;
+  padding: 120px 0;
+  z-index: 3;
+  background: url("../img/header-heroes/uploads.jpg");
+ 
 }
 .contacthero{
-  background: url("../img/header-heroes/contact.jpg") top center;
-  position: relative;
-  padding: 120px 0 ;
-  z-index: 3;
-  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 40vh;
   background-size: cover;
+  position: relative;
+  padding: 120px 0;
+  z-index: 3;
+  background: url("../img/header-heroes/contact.jpg") top center;
 }
 @media (min-width: 1034px) {
   .hero:after {
@@ -804,7 +822,7 @@ section {
 .hero:before {
   position: absolute;
   content: "";
-  background: rgba(27, 47, 69, 0.35);
+  background: rgba(21, 22, 26, 0.35);
   inset: 0;
 }
 
@@ -2379,7 +2397,6 @@ section {
 .footer .footer-content .social-links a {
   font-size: 14px;
   line-height: 0;
-  display: inline-block;
   width: 32px;
   height: 32px;
   color: rgba(27, 47, 69, 0.5);
