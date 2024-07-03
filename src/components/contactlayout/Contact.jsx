@@ -37,13 +37,23 @@ const Contact = () => {
             })
             .then(
                 (response) => {
-                    if (response == "SUCCESS!") {
+                    if (response) {
                         setLoading(false)
                         setMsg({
                             Status: true,
                             type: "success",
                             message: "Your message has been sent. Thank you!"
                         })
+                        setReview(
+                            {
+                                name: "",
+                                email: "",
+                                subject: "",
+                                message: "",
+                        
+                            }
+                        )
+
                     }
                 },
                 (error) => {
@@ -69,16 +79,16 @@ const Contact = () => {
             <section id="contact" className="contact">
                 <div className="container position-relative" data-aos="fade-up">
                     <div className="row gy-4 row-cols-1 row-cols-md-2 mb-4 ">
-                        <div class="col-lg-6">
-                            <div class="info-box card">
-                                <i class="bi bi-telephone"></i>
+                        <div className="col-lg-6">
+                            <div className="info-box card">
+                                <i className="bi bi-telephone"></i>
                                 <h3>Call Us</h3>
                                 <p>...........<br />.............</p>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="info-box card">
-                                <i class="bi bi-envelope"></i>
+                        <div className="col-lg-6">
+                            <div className="info-box card">
+                                <i className="bi bi-envelope"></i>
                                 <h3>Email Us</h3>
                                 <p>..................<br />holopals977@gmail.com</p>
                                 <p>..................<br />holopals977@gmail.com</p>
@@ -122,11 +132,11 @@ const Contact = () => {
                                     <input type="text" className="form-control" name="subject" id="subject" value={review.subject} placeholder="Subject" onChange={e => setReview({ ...review, subject: e.target.value })} required />
                                 </div>
                                 <div className="form-group mt-3">
-                                    <textarea className="form-control" name="message" rows="5" placeholder="Message" onChange={e => setReview({ ...review, message: e.target.value })} required></textarea>
+                                    <textarea className="form-control" value={review.message}name="message" rows="5" placeholder="Message" onChange={e => setReview({ ...review, message: e.target.value })} required></textarea>
                                 </div>
                                 
-                                {loading == true ? <div className="text-center"><button type="submit" disabled>Loading...</button></div> :  <div className="text-center"><button type="submit">Send Message</button></div> }
-                                {msg.Status ==true && msg.type == "success" ? <div className="text-success text-centerr"><p>{msg.message}</p></div> : 
+                                {loading == true ? <div className="text-center"><button type="submit" disabled>Sending...</button></div> :  <div className="text-center"><button type="submit">Send Message</button></div> }
+                                {msg.Status ==true && msg.type == "success" ? <div className="text-success text-center"><p>{msg.message}</p></div> : 
                                 msg.Status==true && msg.type == "error" ? <div className="text-danger text-center"><p>{msg.message}</p></div> : null}
                                 
                             </form>
