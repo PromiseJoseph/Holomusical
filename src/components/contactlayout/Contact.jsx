@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState, useEffect } from "react";
-
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
     const [review, setReview] = useState({
@@ -10,7 +10,54 @@ const Contact = () => {
         message: "",
 
     });
+    const [msg, setMsg] = useState({
+        Status: false,
+        type: "",
+        message: "",
+    })
 
+    const [loading, setLoading] = useState(false);
+
+    //Email.js keys
+    const KEY = {
+        SERVICE_ID: "service_3chwnvn",
+        TEMPLATE_ID: "template_drswrbj",
+        PUBLIC_KEY: "KYOZLbrSBbE4UDZg9",
+    }
+
+
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setLoading(true)
+        emailjs
+            .sendForm(KEY.SERVICE_ID, KEY.TEMPLATE_ID, form.current, {
+                publicKey: KEY.PUBLIC_KEY,
+            })
+            .then(
+                (response) => {
+                    if (response == "SUCCESS!") {
+                        setLoading(false)
+                        setMsg({
+                            Status: true,
+                            type: "success",
+                            message: "Your message has been sent. Thank you!"
+                        })
+                    }
+                },
+                (error) => {
+                    setLoading(false)
+                    if (error) {
+                        setMsg({
+                            Status: true,
+                            type: "error",
+                            message: "An error occured while sending your message!"
+                        })
+                    }
+                },
+            );
+    };
 
     // useEffect(()=>{
     //     setReview(reviewData);
@@ -26,14 +73,14 @@ const Contact = () => {
                             <div class="info-box card">
                                 <i class="bi bi-telephone"></i>
                                 <h3>Call Us</h3>
-                                <p>+1 5589 55488 55<br />+1 6678 254445 41</p>
+                                <p>...........<br />.............</p>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="info-box card">
                                 <i class="bi bi-envelope"></i>
                                 <h3>Email Us</h3>
-                                <p>info@example.com<br />contact@example.com</p>
+                                <p>..................<br />holopals977@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -42,7 +89,7 @@ const Contact = () => {
                         { /* preview */}
                         <div className="col-lg-6" data-aos="flip-right" data-aos-delay="250">
 
-                            <div className="card">
+                            <div className="card bg-light">
                                 <div className="card-body">
                                     <div className=" d-flex flex-row mb-1">
                                         <h5 className="card-title mx-4 text-muted f-4">Name :</h5>
@@ -61,7 +108,7 @@ const Contact = () => {
                         {/* form */}
                         <div className="col-lg-6" data-aos="flip-right" data-aos-delay="250">
 
-                            <form action="forms/contact.php" method="post" role="form" className="php-email-form">
+                            <form method="post" role="form" className="php-email-form" ref={form} onSubmit={sendEmail}>
                                 <div className="row">
                                     <div className="col-md-6 form-group">
                                         <input type="text" name="name" className="form-control" id="name" value={review.name} placeholder="Your Name" onChange={e => setReview({ ...review, name: e.target.value })} required />
@@ -76,12 +123,11 @@ const Contact = () => {
                                 <div className="form-group mt-3">
                                     <textarea className="form-control" name="message" rows="5" placeholder="Message" onChange={e => setReview({ ...review, message: e.target.value })} required></textarea>
                                 </div>
-                                <div className="my-3">
-                                    <div className="loading">Loading</div>
-                                    <div className="error-message"></div>
-                                    <div className="sent-message">Your message has been sent. Thank you!</div>
-                                </div>
-                                <div className="text-center"><button type="submit">Send Message</button></div>
+                                
+                                {loading == true ? <div className="text-center"><button type="submit" disabled>Loading...</button></div> :  <div className="text-center"><button type="submit">Send Message</button></div> }
+                                {msg.Status ==true && msg.type == "success" ? <div className="text-success text-centerr"><p>{msg.message}</p></div> : 
+                                msg.Status==true && msg.type == "error" ? <div className="text-danger text-center"><p>{msg.message}</p></div> : null}
+                                
                             </form>
 
                         </div>

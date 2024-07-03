@@ -52,15 +52,15 @@ const Header = () => {
               <ul>
 
                 <li><NavLink to={"/"}
-                >Home</NavLink></li>
+                >Home</NavLink>  </li>
 
                 <li><a href="#">Blog</a></li>
 
                 <li><NavLink to="/uploads"
                 ><span>Uploads</span> </NavLink> </li>
 
-                <li><NavLink to={"/about"}
-                >About</NavLink></li>
+                {/* <li><NavLink to={"/about"}
+                >About</NavLink></li> */}
 
                 <li><a href="#">Portfolio</a></li>
 
